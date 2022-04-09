@@ -1,0 +1,79 @@
+<ng-container>
+  <div class="header">
+    <div class="logo">
+      Звездочка
+    </div>
+    <div class="logoImg">
+      <img src="src/image/Star.svg" alt="Картинка не загрузилась">
+    </div>
+    <div class="balance">
+      {{balance}} {{sum}}
+    </div>
+    <div class="client">
+      <div>
+        {{clientLastName}}
+      </div>
+      <div>
+        {{clientName}}
+      </div>
+
+    </div>
+  </div>
+  <div class="menu">
+    <div class="menuItem">
+      <a href="">Автомобили</a>
+    </div>
+    <div class="menuItem">
+      <a href="">Условия аренды</a>
+    </div>
+    <div class="menuItem">
+      <a href="">О компании</a>
+    </div>
+    <div class="menuItem">
+      <a href="">Контакты компании</a>
+    </div>
+  </div>
+  <div class="body">
+    <div class="headings">
+        Прокат автомобилей в Кирове
+    </div>
+    <div class="imgCar">
+    </div>
+    <div class="priceToCar">
+      <div class="day priceCars">{{priceCarOneDaytTarrif}}<br>{{countDayOneDaytTarrif}}
+      </div>
+      <div class="day priceCars">{{priceCarTenDaytTarrif}}<br>{{countDayTenDaytTarrif}}
+      </div>
+      <div class="day priceCars">{{priceCarThirtyDaytTarrif}}<br>{{countDayThirtyDaytTarrif}}
+      </div>
+      <div class="day priceCars">{{priceCarThirtyOneDaytTarrif}}<br>{{countDayThirtyOneDaytTarrif}}
+      </div>
+
+    </div>
+    <div class="slaider">
+      <input type="radio" checked>
+      <input type="radio">
+      <input type="radio">
+      <input type="radio">
+    </div>
+    <button>Арендовать</button>
+  </div>
+  <div class="footer">
+      <div class="footerTitle">
+          О компании
+      </div>
+    <div class="footeItem">
+      <div class="map">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Acc170be5ab8f3c51c08dd3ef58c68f2f46424bc287a69a9f1c58afd961403bf5&amp;source=constructor" width="400" height="340" frameborder="0">
+        </iframe>
+      </div>
+      <div class="footertext">
+        АРЕНДА АВТО В КИРОВЕ ОТ 1000 РУБ. в СУТКИ.<br><br>
+        Наш адрес: г. Киров<br><br>
+        Режим работы: 08:00-20:00 Без выходных<br><br>
+      </div>
+    </div>
+
+  </div>
+</ng-container>

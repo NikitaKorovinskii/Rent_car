@@ -1,18 +1,12 @@
-body {
-  background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3));
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: sans-serif;
-}
-
 .form {
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 40px;
   transform: translate(-50%,-50%);
-  background: linear-gradient(180deg, rgba(0, 26, 255, 0.6) 0%, rgba(189, 0, 255, 0.6) 100%);
+  background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+  backdrop-filter: blur(120px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .form h1 {
@@ -34,23 +28,40 @@ body {
   font-size: 20px;
   outline: none;
   box-sizing: border-box;
+  border-radius: 15px;
 }
+input::placeholder {
+  color: black;
+}
+input::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.3s ease;}
+input::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.3s ease;}
+input:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.3s ease;}
+input:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.3s ease;}
+input:focus::-webkit-input-placeholder {text-indent: 500px; transition: text-indent 0.3s ease;}
+input:focus::-moz-placeholder          {text-indent: 500px; transition: text-indent 0.3s ease;}
+input:focus:-moz-placeholder           {text-indent: 500px; transition: text-indent 0.3s ease;}
+input:focus:-ms-input-placeholder      {text-indent: 500px; transition: text-indent 0.3s ease;}
 
 .input-form input[type="text"]:focus, .input-form input[type="password"]:focus {
   border: 1px solid #0fc3f5;
 }
 
 .btn{
+  border-radius: 15px;
   font-size: 20px;
   width: 150px;
   margin-top: 10px;
+  background: gray;
+}
+.btn:hover {
+  background: black;
 }
 
 .form a {
   display: block;
   padding: 0 0 30px;
   text-align: center;
-  color: #fff;
+  color: black;
   font-size: 20px;
   text-decoration: none;
   transition: .3s;
@@ -68,5 +79,5 @@ body {
   height: 50px;
 }
 .form a:hover {
-  color: #0fc3f5;
+  color: rgba(255, 58, 140, 0.6);
 }
