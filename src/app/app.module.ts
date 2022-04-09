@@ -9,6 +9,8 @@ import {SignInComponent} from './SignIn/sign-in.component';
 import {SignUpComponent} from './SignUp/sign-up.component';
 import {HomeComponent} from './home/home.component';
 import {MainMenuComponent} from './main-menu/main-menu.component';
+import {PersonalAccountComponent} from './personal-account/personal-account.component';
+import {CarsComponent} from './cars/cars.component';
 
 const appRoutes: Routes = [
   {path: '', component: SignInComponent},
@@ -16,6 +18,8 @@ const appRoutes: Routes = [
   {path: 'SignUp', component: SignUpComponent},
   {path: 'Home', component: HomeComponent},
   {path: 'main-menu', component: MainMenuComponent},
+  {path: 'lk', component: PersonalAccountComponent},
+  {path: 'cars', component: CarsComponent}
 ]
 
 
@@ -26,6 +30,8 @@ const appRoutes: Routes = [
     SignUpComponent,
     HomeComponent,
     MainMenuComponent,
+    PersonalAccountComponent,
+    CarsComponent,
   ],
   imports: [
     BrowserModule,
