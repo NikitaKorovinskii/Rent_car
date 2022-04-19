@@ -1,0 +1,17 @@
+.body{
+  text-align: center;
+  background:  white;
+}
+.phone{
+  padding-top: 80px;
+}
+.phone h6{
+  color: grey;
+}
+.email{
+  padding-top: 80px;
+}
+.address{
+  padding-top: 80px;
+  padding-bottom: 20px;
+}

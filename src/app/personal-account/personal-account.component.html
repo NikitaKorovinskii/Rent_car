@@ -1,44 +1,5 @@
 <ng-container>
-  <div class="header">
-    <div class="logo">
-      <a href="/main-menu" class="forget">
-        Звездочка
-      </a>
-    </div>
-    <div class="logoImg">
-      <img src="src/image/Star.svg" alt="Картинка не загрузилась">
-    </div>
-    <div class="balance">
-      {{balance}} {{sum}}
-    </div>
-    <div class="client">
-      <a href="/lk" class="forget">
-        <div>
-          {{clientLastName}}
-        </div>
-        <div>
-          {{clientName}}
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="menu">
-    <div class="menuItem">
-      <a href="/cars">Автомобили</a>
-    </div>
-    <div class="menuItem">
-      <a href="">Условия аренды</a>
-    </div>
-    <div class="menuItem">
-      <a href="">О компании</a>
-    </div>
-    <div class="menuItem">
-      <a href="">Контакты компании</a>
-    </div>
-  </div>
   <div class="body">
-      <button>Личная информация</button>
-      <button>История поездок</button>
   <div class="infoClient">
     <div>
       ФИО: {{clientLastName}} {{clientName}} {{clientMiddleName}}
@@ -50,6 +11,5 @@
       Номер прав: {{clientDriverNum}}
     </div>
   </div>
-    <button>Пополнить баланс</button>
   </div>
 </ng-container>

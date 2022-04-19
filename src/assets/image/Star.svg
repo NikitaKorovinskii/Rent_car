@@ -1,6 +1,6 @@
 <svg width="110" height="104" viewBox="0 0 110 104" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_28_10)">
-<path d="M55 0L66.8992 36.6221H105.406L74.2534 59.2558L86.1526 95.8779L55 73.2442L23.8474 95.8779L35.7466 59.2558L4.59401 36.6221H43.1008L55 0Z" fill="url(#paint0_linear_28_10)" fill-opacity="0.4" shape-rendering="crispEdges"/>
+<path d="M55 0L66.8992 36.6221H105.406L74.2534 59.2558L86.1526 95.8779L55 73.2442L23.8474 95.8779L35.7466 59.2558L4.59401 36.6221H43.1008L55 0Z" fill="#FF0000" fill-opacity="0.72" shape-rendering="crispEdges"/>
 </g>
 <defs>
 <filter id="filter0_d_28_10" x="0.593994" y="0" width="108.812" height="103.878" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -13,9 +13,5 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_10"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_10" result="shape"/>
 </filter>
-<linearGradient id="paint0_linear_28_10" x1="55" y1="9.5" x2="55" y2="106" gradientUnits="userSpaceOnUse">
-<stop stop-color="#001AFF"/>
-<stop offset="1" stop-color="#BD00FF"/>
-</linearGradient>
 </defs>
 </svg>

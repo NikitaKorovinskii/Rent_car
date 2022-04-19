@@ -1,56 +1,26 @@
 <ng-container>
-  <div class="header">
-    <div class="logo">
-      <a href="/main-menu" class="forget">
-      Звездочка
-      </a>
-    </div>
-    <div class="logoImg">
-      <img src="src/image/Star.svg" alt="Картинка не загрузилась">
-    </div>
-    <div class="balance">
-      {{balance}} {{sum}}
-    </div>
-    <div class="client">
-      <a href="/lk" class="forget">
-      <div>
-       {{clientLastName}}
-      </div>
-      <div>
-        {{clientName}}
-      </div>
-      </a>
-    </div>
-  </div>
-  <div class="menu">
-    <div class="menuItem">
-      <a href="/cars">Автомобили</a>
-    </div>
-    <div class="menuItem">
-      <a href="">Условия аренды</a>
-    </div>
-    <div class="menuItem">
-      <a href="">О компании</a>
-    </div>
-    <div class="menuItem">
-      <a href="">Контакты компании</a>
-    </div>
-  </div>
   <div class="body">
     <div class="headings">
         Прокат автомобилей в Кирове
     </div>
     <div class="imgCar">
+      <img src="/assets/image/SuperCar.png">
     </div>
-    <div class="priceToCar">
-      <div class="day priceCars">{{priceCarOneDaytTarrif}}<br>{{countDayOneDaytTarrif}}
-      </div>
-      <div class="day priceCars">{{priceCarTenDaytTarrif}}<br>{{countDayTenDaytTarrif}}
-      </div>
-      <div class="day priceCars">{{priceCarThirtyDaytTarrif}}<br>{{countDayThirtyDaytTarrif}}
-      </div>
-      <div class="day priceCars">{{priceCarThirtyOneDaytTarrif}}<br>{{countDayThirtyOneDaytTarrif}}
-      </div>
+
+      <div class="priceToCar">
+        <a href="/cars">
+        <div class="day priceCars">{{priceCarOneDaytTarrif}}<br>{{countDayOneDaytTarrif}}
+        </div> </a>
+        <a href="/cars">
+        <div class="day priceCars">{{priceCarTenDaytTarrif}}<br>{{countDayTenDaytTarrif}}
+        </div></a>
+          <a href="/cars">
+        <div class="day priceCars">{{priceCarThirtyDaytTarrif}}<br>{{countDayThirtyDaytTarrif}}
+        </div></a>
+        <a href="/cars">
+        <div class="day priceCars">{{priceCarThirtyOneDaytTarrif}}<br>{{countDayThirtyOneDaytTarrif}}
+        </div></a>
+
 
     </div>
     <div class="slaider">
@@ -59,24 +29,8 @@
       <input type="radio">
       <input type="radio">
     </div>
+    <a href="/cars">
     <button>Арендовать</button>
-  </div>
-  <div class="footer">
-      <div class="footerTitle">
-          О компании
-      </div>
-    <div class="footeItem">
-      <div class="map">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3Acc170be5ab8f3c51c08dd3ef58c68f2f46424bc287a69a9f1c58afd961403bf5&amp;source=constructor" width="400" height="340" frameborder="0">
-        </iframe>
-      </div>
-      <div class="footertext">
-        АРЕНДА АВТО В КИРОВЕ ОТ 1000 РУБ. в СУТКИ.<br><br>
-        Наш адрес: г. Киров<br><br>
-        Режим работы: 08:00-20:00 Без выходных<br><br>
-      </div>
-    </div>
-
+    </a>
   </div>
 </ng-container>

@@ -7,19 +7,30 @@ import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {SignInComponent} from './SignIn/sign-in.component';
 import {SignUpComponent} from './SignUp/sign-up.component';
-import {HomeComponent} from './home/home.component';
 import {MainMenuComponent} from './main-menu/main-menu.component';
 import {PersonalAccountComponent} from './personal-account/personal-account.component';
 import {CarsComponent} from './cars/cars.component';
+import { AppNavComponent } from './app-nav/app-nav.component';
+import { RentalConditionsComponent } from './rental-conditions/rental-conditions.component';
+import { InfoCompanyComponent } from './info-company/info-company.component';
+import { ContactCompanyComponent } from './contact-company/contact-company.component';
+import { FooterComponent } from './footer/footer.component';
+import { HistoryComponent } from './history/history.component';
+import { FillBalanceComponent } from "./fill-balance/fill-balance.component";
+import { ModalComponent } from './modal/modal.component';
 
 const appRoutes: Routes = [
   {path: '', component: SignInComponent},
   {path: 'SignIn', component: SignInComponent},
   {path: 'SignUp', component: SignUpComponent},
-  {path: 'Home', component: HomeComponent},
   {path: 'main-menu', component: MainMenuComponent},
   {path: 'lk', component: PersonalAccountComponent},
-  {path: 'cars', component: CarsComponent}
+  {path: 'cars', component: CarsComponent},
+  {path: 'rental-conditions', component: RentalConditionsComponent},
+  {path: 'info', component: InfoCompanyComponent},
+  {path: 'contact', component: ContactCompanyComponent},
+  {path: 'history', component: HistoryComponent},
+  {path: 'fill-balance', component: FillBalanceComponent},
 ]
 
 
@@ -28,10 +39,17 @@ const appRoutes: Routes = [
     AppComponent,
     SignInComponent,
     SignUpComponent,
-    HomeComponent,
     MainMenuComponent,
     PersonalAccountComponent,
     CarsComponent,
+    AppNavComponent,
+    RentalConditionsComponent,
+    InfoCompanyComponent,
+    ContactCompanyComponent,
+    FooterComponent,
+    HistoryComponent,
+    FillBalanceComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

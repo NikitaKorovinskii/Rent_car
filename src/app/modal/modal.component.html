@@ -1,0 +1,25 @@
+<div class="backdrop"></div>
+<div class="modal">
+
+  <nav class="navbar">
+    Пополнение баланса
+    <button class="btn close" (click)="close.emit()">X</button>
+  </nav>
+  <div class="numberCard">
+    <img src="/assets/image/mir-logo-h28px.png">
+    <div>
+      <input class="numCard" placeholder="Номер карты">
+    </div>
+
+    <div class="dataCard">
+      <input class="MM" placeholder="ММ">
+      /
+      <input class="GG" placeholder="ГГ">
+      <input class="CVC" placeholder="CVC">
+    </div>
+    <div>
+      <input class="sum" placeholder="Сумма">
+    </div>
+  </div>
+  <button class="btn add" (click)="close.emit()">Пополнить</button>
+</div>
