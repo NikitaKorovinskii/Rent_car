@@ -51,11 +51,11 @@ const appRoutes: Routes = [
     FillBalanceComponent,
     ModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes)
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
