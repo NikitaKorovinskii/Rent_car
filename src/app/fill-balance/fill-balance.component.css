@@ -3,15 +3,22 @@
   height: 100%;
   background: white;
 }
-.titleBalance{
+.balance{
   padding-top: 60px;
+}
+.titleBalance{
   text-align: center;
   font-size: 42px;
   font-family: 'Lucida Sans Unicode';
+  display: inline;
 }
-.body button {
+i{
+  cursor: pointer;
+  margin-left: 20px;
+}
+.btn {
   margin-top: 40px ;
-  margin-left: 600px;
+  margin-left: 640px;
   margin-bottom: 80px;
   font-family: 'Lucida Sans Unicode';
   font-style: normal;

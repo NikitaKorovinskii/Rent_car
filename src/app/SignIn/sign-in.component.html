@@ -2,16 +2,14 @@
   <div class="form">
     <h1>Вход</h1>
     <div class="input-form">
-      <input type="text" placeholder="Логин" class="loginSingIn">
+      <input type="text" placeholder="Номер телефона" class="loginSingIn" [(ngModel)]="login">
     </div>
     <div class="input-form">
-      <input type="password" placeholder="Пароль" class="passwordSingIn">
+      <input type="password" placeholder="Пароль" class="passwordSingIn" [(ngModel)]="passwordUser">
     </div>
     <div class="input-form">
-      <a href="/main-menu">
-        <button class="btn btn-primary" href="/">Войти</button>
-      </a>
+        <button class="btn btn-primary" (click)="rout(login,passwordUser)">Войти</button>
     </div>
-    <a href="/SignUp" class="forget">Зарегистрироваться</a>
+    <a (click)="signUp()" class="forget">Зарегистрироваться</a>
   </div>
 </div>

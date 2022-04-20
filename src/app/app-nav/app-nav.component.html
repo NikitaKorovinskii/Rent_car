@@ -1,23 +1,25 @@
 <div class="header">
   <div class="logo">
-    <a href="/main-menu" class="forget">
+    <a (click)="cars()" class="forget">
       CoinCar
     </a>
+    <a (click)="cars()" class="forget">
     <img src="/assets/image/LogoCar.svg" alt="Картинка не загрузилась">
+    </a>
   </div>
 </div>
 <div class="menu">
   <div class="menuItem">
-    <a href="/cars">Автомобили</a>
+    <a (click)="cars()">Автомобили</a>
   </div>
   <div class="menuItem">
-    <a href="/rental-conditions">Условия аренды</a>
+    <a (click)="rentalConditions()">Условия аренды</a>
   </div>
   <div class="menuItem">
-    <a href="/info">О компании</a>
+    <a (click)="info()">О компании</a>
   </div>
   <div class="menuItem">
-    <a href="/contact">Контакты компании</a>
+    <a (click)="contact()">Контакты компании</a>
   </div>
   <div class="info">
     <nav>
@@ -26,9 +28,9 @@
 
           <ul class="lkClient">
             <li class="lkProfil"> <a href="/lk">Профиль</a></li>
-            <li> <a href="/history">История поездок</a></li>
-            <li> <a href="/fill-balance">Пополнить баланс</a></li>
-            <li> <a href="/SignIn">Выход</a></li>
+            <li> <a (click)="history()">История поездок</a></li>
+            <li> <a (click)="fillBalance()">Пополнить баланс</a></li>
+            <li> <a (click)="SignIn()">Выход</a></li>
           </ul>
         </li>
       </ul>

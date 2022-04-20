@@ -77,6 +77,10 @@ nav ul::after{
   color: #000000;
 
 }
+a{
+  cursor: pointer;
+  user-select: none;}
+
 .menuLk:hover{
   color: red;
 }

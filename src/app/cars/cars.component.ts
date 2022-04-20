@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
+  x=1;
   balance ="Баланс:";
   sum = "1200"+"руб";
   clientName = "Никита";

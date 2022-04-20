@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {NgxMaskModule} from "ngx-mask";
 
 import {Routes, RouterModule} from '@angular/router';
 
@@ -7,7 +8,6 @@ import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {SignInComponent} from './SignIn/sign-in.component';
 import {SignUpComponent} from './SignUp/sign-up.component';
-import {MainMenuComponent} from './main-menu/main-menu.component';
 import {PersonalAccountComponent} from './personal-account/personal-account.component';
 import {CarsComponent} from './cars/cars.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
@@ -23,7 +23,6 @@ const appRoutes: Routes = [
   {path: '', component: SignInComponent},
   {path: 'SignIn', component: SignInComponent},
   {path: 'SignUp', component: SignUpComponent},
-  {path: 'main-menu', component: MainMenuComponent},
   {path: 'lk', component: PersonalAccountComponent},
   {path: 'cars', component: CarsComponent},
   {path: 'rental-conditions', component: RentalConditionsComponent},
@@ -39,7 +38,6 @@ const appRoutes: Routes = [
     AppComponent,
     SignInComponent,
     SignUpComponent,
-    MainMenuComponent,
     PersonalAccountComponent,
     CarsComponent,
     AppNavComponent,
@@ -51,11 +49,12 @@ const appRoutes: Routes = [
     FillBalanceComponent,
     ModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes),
+      NgxMaskModule.forRoot()
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
