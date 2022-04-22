@@ -1,19 +1,12 @@
 <div class="backdrop"></div>
 <div class="modal">
   <nav class="navbar">
-    <div class="title">
-      Пополнение баланса
-    </div>
-    <div class="setting">
-      Инструкция по пополнению:<br>
-      1.Введите сумму<br>
-      2.Нажмите пополнить<br>
-      3.После добавление нажмите на значок <i class="fa-solid fa-rotate-right"></i>
-    </div>
-
+    Пополнение баланса
   </nav>
   <div class="numberCard">
-      <input  class="sum" placeholder="Сумма" [(ngModel)]="sum" mask="XXXXXX">
+    <div>
+      <input class="sum" placeholder="Сумма">
+    </div>
   </div>
-  <button class="btn add" (click)="close.emit();addItem(sum)">Пополнить</button>
+  <button class="btn add" (click)="close.emit()">Пополнить</button>
 </div>
