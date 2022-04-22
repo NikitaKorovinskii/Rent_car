@@ -12,7 +12,7 @@ export class DataService{
   }
   addData(name: number){
     this.sum+=name;
-
+    console.log(this.sum)
   }
   addFio(Fio: string,){
     this.Fio=Fio;
@@ -34,7 +34,6 @@ export class DataService{
   }
   getPhone(){
     return this.phone;
-    console.log(this.phone)
   }
   getFio(){
     return this.Fio;

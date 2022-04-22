@@ -9,9 +9,9 @@ import {DataService} from '../data.service';
 })
 export class FillBalanceComponent implements OnInit {
   modal = false
-  balanceSum=this.dataService.getData()
+  balanceSum = 0;
   click(){
-    this.balanceSum =this.dataService.getData();//запрос к серверу
+    this.balanceSum = this.dataService.getData();//запрос к серверу
   }
   constructor(private dataService: DataService) { }
 

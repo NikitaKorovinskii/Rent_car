@@ -9,7 +9,7 @@
 .modal{
   display: block;
   width: 520px;
-  height: 350px;
+  height: 400px;
   padding: 2rem;
   background: #fff;
   margin-top: 6rem;
@@ -17,12 +17,19 @@
   left: 50%;
   transform: translate(-50%,0);
 }
-
+.setting{
+  color: red;
+  font-size: 20px;
+  font-family: "Lucida Sans Unicode";
+}
 .navbar{
-  display: flex;
-  justify-content: space-between;
   font-size: 43px;
   font-family: "Lucida Sans Unicode";
+}
+.navbar img{
+  margin: 0 50%;
+  width: 40px;
+  height: 40px;
 }
 .btn{
   text-align: center;
@@ -32,20 +39,22 @@
   border-radius: 20px;
 }
 .add{
-  margin-left: 130px;
+  margin-left: 27%;
   margin-top: 20px;
   font-size: 33px;
 }
-.sum{
+
+input{
   margin-top: 20px;
-  width: 100px;
   height: 100%;
-  margin-left: 180px;
-  border-width: 1px;
-  font-family: "Lucida Sans Unicode";
-  font-size: 20px;
+  margin-left: 150px;
+  width: 150px;
+  font-size: 30px;
+  outline: none;
+  border-width: 3px;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
-.numberCard img{
-  margin-left: 250px;
-  margin-bottom: 20px;
+input:focus{
+  border-color:rgba(219, 0, 255, 0.5) ;
 }

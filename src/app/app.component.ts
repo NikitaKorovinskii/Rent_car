@@ -9,5 +9,4 @@ import {DataService} from "./data.service";
 })
 export class AppComponent {
   title = 'Rent car from Kirov';
-  x=0;
 }

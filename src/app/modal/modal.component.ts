@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DataService} from '../data.service';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-modal',
@@ -9,13 +8,11 @@ import {Router} from "@angular/router";
 })
 export class ModalComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
+  constructor(private dataService: DataService){}
 
   sum: number = 0;
-  constructor(private dataService: DataService, private  router: Router){}
-
-  // @ts-ignore
-  addItem(sum: number){
-    this.dataService.addData(sum);//заменить на запрос к серверу который поменяет данные в бд
+  addItem(name: number){
+    this.dataService.addData(name);//заменить на запрос к серверу который поменяет данные в бд
   }
   ngOnInit(){
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {Router} from "@angular/router";
+import {NgxMaskModule} from "ngx-mask";
 
 
 @Component({
@@ -35,6 +36,7 @@ export class SignUpComponent implements OnInit {
       this.password == this.passwordRepeat) {
             this.dataService.addFio(Fio)
             this.dataService.addDateOfBith(dateOfBith)
+
             this.dataService.addPhone(phone)
             this.dataService.addEmail(email)
             this.dataService.addDriverNum(driverNum)
