@@ -2,7 +2,7 @@
   <div class="form">
     <h1>Вход</h1>
     <div class="input-form">
-      <input type="text" placeholder="Номер телефона" class="loginSingIn" [(ngModel)]="login">
+      <input type="text" placeholder="Номер телефона" class="loginSingIn" autocomplete="on"  prefix="+7" mask="9999999999"[(ngModel)]="login">
     </div>
     <div class="input-form">
       <input type="password" placeholder="Пароль" class="passwordSingIn" [(ngModel)]="passwordUser">
