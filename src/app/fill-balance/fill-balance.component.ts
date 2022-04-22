@@ -11,7 +11,7 @@ export class FillBalanceComponent implements OnInit {
   modal = false
   balanceSum = 0;
   click(){
-    this.balanceSum = this.dataService.getData();//запрос к серверу
+    this.balanceSum = this.dataService.getData();//запрос к серверу на обновление и на отправку чека
   }
   constructor(private dataService: DataService) { }
 

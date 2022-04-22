@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FillBalanceComponent } from './fill-balnce.component';
+import { FillBalanceComponent } from "./fill-balance.component";
 
 describe('FillBalnceComponent', () => {
   let component: FillBalanceComponent;
