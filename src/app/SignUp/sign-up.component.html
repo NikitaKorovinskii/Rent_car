@@ -2,13 +2,13 @@
   <div class="form">
     <h1>Вход</h1>
     <div class="input-form">
-      <input type="text" placeholder="ФИО" [(ngModel)]="Fio">
+      <input type="text" placeholder="ФИО"  [(ngModel)]="Fio">
     </div>
     <div class="input-form">
-      <input placeholder="Дата рождения" mask="99.99.9999" [(ngModel)]="dateOfBith">
+      <input placeholder="Дата рождения" mask="XX.XX.XXXX" [(ngModel)]="dateOfBith">
     </div>
     <div class="input-form">
-      <input value="" placeholder="(XXX) XXX XXXXX"prefix="+" mask="99999999999" [(ngModel)]="phone">
+      <input value="" placeholder="(XXX) XXX XXXXX" prefix="+" mask="X (XXX) XXX XX-XX" [(ngModel)]="phone">
     </div>
     <div class="input-form">
       <input type="text" placeholder="Номер В/У" mask="XX XX XXXXXX" [(ngModel)]="driverNum">

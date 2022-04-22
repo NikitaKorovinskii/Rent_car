@@ -1,4 +1,5 @@
 export class DataService{
+
     sum = 0;
     Fio="";
     dateOfBith="";
