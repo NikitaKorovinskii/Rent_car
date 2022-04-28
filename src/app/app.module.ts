@@ -18,6 +18,8 @@ import { HistoryComponent } from './history/history.component';
 import { FillBalanceComponent } from "./fill-balance/fill-balance.component";
 import { ModalComponent } from './modal/modal.component';
 import {NgxMaskModule} from "ngx-mask";
+import { ModalInfoComponent } from './modal-info/modal-info.component';
+import { ModalRentCarComponent } from './modal-rent-car/modal-rent-car.component';
 
 const appRoutes: Routes = [
   {path: '', component: SignInComponent},
@@ -48,6 +50,8 @@ const appRoutes: Routes = [
     HistoryComponent,
     FillBalanceComponent,
     ModalComponent,
+    ModalInfoComponent,
+    ModalRentCarComponent,
   ],
   imports: [
     BrowserModule,

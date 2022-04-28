@@ -1,0 +1,26 @@
+<div class="backdrop"></div>
+<div class="modal">
+  <nav class="navbar">
+    <div class="title">
+      Информация о  автомобиле.
+    </div>
+    <div class="setting">
+      <div style="display: flex">
+        <div> <b>Техническое состояние:</b>
+          <li>Полностью исправное</li>
+          <li>Уровень топлива: {{g}}л.</li>
+          <li>Уровень омывающей жидкости: {{h}} %</li></div>
+        <div> <b>Характеристики автомобиля:</b>
+          <li>Объем двигателя 2.0 л.</li>
+          <li>Мощность двигателя 220 л.с.</li>
+          <li>Тип коробки передач АКПП</li><br></div>
+      </div>
+
+      <div><b> Технический осмотр:</b>
+        <li>Последнее ТО было произведено 2019 году (была замена масла)</li>
+        </div>
+    </div>
+  </nav>
+  <button class="btn add" (click)="close.emit()">Закрыть</button>
+</div>
+

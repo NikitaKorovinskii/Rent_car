@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-personal-account',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PersonalAccountComponent implements OnInit {
   balance ="Баланс:";
   sum = "1200"+"руб";
-  clientName = "Никита";
+  clientName = "res";
   clientLastName ="Коровинский";
   clientMiddleName = "Сергеевич";
   clientEmail="Korovinskii@mail.ru";
@@ -17,6 +19,14 @@ export class PersonalAccountComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    axios.get("http://localhost:1234/")
+      .then((res)=>{
+        console.log(res.data)
+      })
+      .catch ((err:any)=>
+      {
+        console.log(err)
+      });
   }
 
 }

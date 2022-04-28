@@ -13,7 +13,7 @@ export class SignUpComponent implements OnInit {
   Fio: string = this.dataService.getFio();
   dateOfBith: string = this.dataService.getDateOfBith();
   phone: number = 7;
-  driverNum: number =0;
+  driverNum: string ="";
   email: string = this.dataService.getEmail();
   password: string = this.dataService.getPassword();
   passwordRepeat: string = "";
@@ -25,12 +25,12 @@ export class SignUpComponent implements OnInit {
   SignIn(Fio: string,
          dateOfBith: string,
          phone: number,
-         driverNum: number,
+         driverNum: string,
          email: string,
          password: string,
          passwordRepeat: string) {
     if (this.Fio != "" && this.email != "" &&
-      this.password != "" && this.driverNum != 0 &&
+      this.password != "" && this.driverNum != "" &&
       this.phone != 7 && this.dateOfBith != "" &&
       this.password == this.passwordRepeat) {
             this.dataService.addFio(Fio)

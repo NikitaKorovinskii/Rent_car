@@ -4,7 +4,7 @@ export class DataService{
     Fio="";
     dateOfBith="";
     phone=7;
-    driverNum=0;
+    driverNum="";
     email="";
     password="";
 
@@ -21,17 +21,17 @@ export class DataService{
   addDateOfBith(dateOfBith:string,){
     this.dateOfBith+=dateOfBith;
   }
-  addDriverNum(driverNum: number){
+  addDriverNum(driverNum: string){
     this.driverNum+=driverNum;
   }
   addPhone(phone:number){
     this.phone+=phone;
   }
   addEmail(email:string){
-    this.email+=email;
+    this.email=email;
   }
   addPassword(password:string){
-    this.password+=password;
+    this.password=password;
   }
   getPhone(){
     return this.phone;
