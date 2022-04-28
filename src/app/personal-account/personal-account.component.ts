@@ -10,7 +10,7 @@ import axios from 'axios';
 export class PersonalAccountComponent implements OnInit {
   balance ="Баланс:";
   sum = "1200"+"руб";
-  clientName = "res";
+  clientName = "Никита";
   clientLastName ="Коровинский";
   clientMiddleName = "Сергеевич";
   clientEmail="Korovinskii@mail.ru";
@@ -21,7 +21,7 @@ export class PersonalAccountComponent implements OnInit {
   ngOnInit(): void {
     axios.get("http://localhost:1234/")
       .then((res)=>{
-        console.log(res.data)
+        this.clientName=(res.data)
       })
       .catch ((err:any)=>
       {
