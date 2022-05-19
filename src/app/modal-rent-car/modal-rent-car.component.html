@@ -1,20 +1,30 @@
 <div class="backdrop"></div>
 <div class="modal">
-  <nav class="navbar">
-    <div class="title">
-      Пополнение баланса
+  <div class="modalMy">
+    <div class="startDate">
+      <div class="endSt">
+        Дата начало аренды:
+      </div>
+      <input class="dateSt" type="date" [(ngModel)]="startDate"/>
     </div>
-    <div class="setting">
-      Инструкция по пополнению:<br>
-      1.Введите сумму<br>
-      2.Нажмите пополнить<br>
-      3.После добавление нажмите на значок <i class="fa-solid fa-rotate-right"></i>
+    <div class="endDate" style="display: inline">
+      <div class="endSt">
+        Дата завершения аренды:
+      </div>
+      <input class="dateSt" type="date" [(ngModel)]="endDate"/>
     </div>
-
-  </nav>
-  <div class="numberCard">
-    <input  class="sum" placeholder="Сумма"  mask="XXXXXX">
+    <div *ngIf="startDate<=endDate && x==1">
+      <button class="btn" (click)="reload(startDate,endDate)">Узнать цену</button>
+    </div>
+    <div *ngIf="startDate<=endDate && x==2">
+      <div>
+        {{ResultCoast}}
+      </div>
+      <div>
+        <button class="btn" (click)="closes.emit();Further()">Арендовать</button>
+      </div>
+    </div>
   </div>
-  <button class="btn add" (click)="closes.emit()">Пополнить</button>
+
 </div>
 

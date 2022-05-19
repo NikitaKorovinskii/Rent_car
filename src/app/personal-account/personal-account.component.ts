@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import {DataService} from "../data.service";
 
 
 @Component({
@@ -10,23 +11,22 @@ import axios from 'axios';
 export class PersonalAccountComponent implements OnInit {
   balance ="Баланс:";
   sum = "1200"+"руб";
-  clientName = "Никита";
-  clientLastName ="Коровинский";
-  clientMiddleName = "Сергеевич";
   clientEmail="Korovinskii@mail.ru";
   clientDriverNum = "1112 454879";
+  clientFio= "";
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    axios.get("http://localhost:1234/")
-      .then((res)=>{
-        this.clientName=(res.data)
-      })
-      .catch ((err:any)=>
-      {
-        console.log(err)
-      });
+    this.clientFio = this.dataService.getFio()// поменять на запрос ниже
+    // axios.get("http://localhost:1234/")
+    //   .then((res)=>{
+    //     this.clientName=(res.data)
+    //   })
+    //   .catch ((err:any)=>
+    //   {
+    //     console.log(err)
+    //   });
   }
 
 }

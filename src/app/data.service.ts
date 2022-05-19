@@ -3,10 +3,17 @@ export class DataService{
     sum = 0;
     Fio="";
     dateOfBith="";
-    phone=7;
+    phone="7";
     driverNum="";
     email="";
     password="";
+    payCar=0;
+
+    addPayCar(payofCar: number){
+      this.payCar = payofCar;
+      this.sum= this.sum - this.payCar;
+      console.log(this.sum)
+    }
 
   getData() {
     return this.sum;
@@ -17,6 +24,7 @@ export class DataService{
   }
   addFio(Fio: string,){
     this.Fio=Fio;
+    console.log(Fio)
   }
   addDateOfBith(dateOfBith:string,){
     this.dateOfBith+=dateOfBith;
@@ -24,8 +32,8 @@ export class DataService{
   addDriverNum(driverNum: string){
     this.driverNum+=driverNum;
   }
-  addPhone(phone:number){
-    this.phone+=phone;
+  addPhone(phone:string){
+    this.phone=phone;
   }
   addEmail(email:string){
     this.email=email;
@@ -38,6 +46,7 @@ export class DataService{
   }
   getFio(){
     return this.Fio;
+    console.log(this.Fio)
   }
   getDateOfBith(){
     return this.dateOfBith;

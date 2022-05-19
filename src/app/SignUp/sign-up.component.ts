@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {Router} from "@angular/router";
+import axios from "axios";
 
 
 @Component({
@@ -10,44 +11,72 @@ import {Router} from "@angular/router";
 })
 export class SignUpComponent implements OnInit {
 
-  Fio: string = this.dataService.getFio();
-  dateOfBith: string = this.dataService.getDateOfBith();
-  phone: number = 7;
-  driverNum: string ="";
-  email: string = this.dataService.getEmail();
-  password: string = this.dataService.getPassword();
-  passwordRepeat: string = "";
+  x = 1;
+  lastName: any;
+  name: any;
+  middleName: any;
+  dateOfBith: any;
+  phone: any;
+  driverNum: any;
+  passport: any;
+  email: any;
+  password: any;
+  passwordRepeat: any;
 
 
-  constructor(private dataService: DataService, private  route:Router) {
+  constructor(private dataService: DataService, private route: Router) {
   }
 
-  SignIn(Fio: string,
-         dateOfBith: string,
-         phone: number,
-         driverNum: string,
-         email: string,
-         password: string,
-         passwordRepeat: string) {
-    if (this.Fio != "" && this.email != "" &&
-      this.password != "" && this.driverNum != "" &&
-      this.phone != 7 && this.dateOfBith != "" &&
-      this.password == this.passwordRepeat) {
-            this.dataService.addFio(Fio)
-            this.dataService.addDateOfBith(dateOfBith)
-            this.dataService.addPhone(phone)
-            this.dataService.addEmail(email)
-            this.dataService.addDriverNum(driverNum)
-            this.dataService.addPassword(password)
-      this.route.navigate(['/SignIn'])}
-    else {alert(" Eсть незаполненные поля, либо пароли не совпадает")}
+
+  SignIn(lastname: string, name: string, middleName: string, dateOfBith: string, phone: string, driverNum: string,
+         passport: string, email: string, password: string) {
+    lastname = this.lastName;
+    name = this.name;
+    middleName = this.middleName;
+    dateOfBith = this.dateOfBith;
+    phone = this.phone;
+    driverNum = this.driverNum;
+    passport = this.passport;
+    email = this.email;
+    password = this.password;
+    this.x = 1;
+    if (lastname != "" && name != "" && middleName != "" && phone != "" && driverNum != "" && passport != "" && email != "" && password != "" && password == this.passwordRepeat) {
+      axios.post("http://localhost:1234/authorization", {
+        DateOfBirth: new Date(dateOfBith),
+        NumberPhone: phone,
+        DrieverNumber: parseInt(driverNum),
+        Email: email,
+        Password: password
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            alert('Успешно!');
+          } else if (response.status === 404) {
+            alert('LALALA');
+          }
+        })
+      this.route.navigate(['/SignIn'])
+    } else {
+      alert("Пароль не совпадает или не все поля заполнены");
+    }
+
   }
-  rout(){
+
+  rout() {
     this.route.navigate(['/SignIn'])
   }
 
 
   ngOnInit(): void {
+    this.name = "";
+    this.lastName = "";
+    this.middleName = "";
+    this.phone = "";
+    this.password = "";
+    this.email = "";
   }
 
+  Further() {
+    this.x = 2;
+  }
 }

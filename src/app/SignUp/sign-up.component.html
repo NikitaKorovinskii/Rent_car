@@ -1,29 +1,45 @@
 <div class="container">
   <div class="form">
-    <h1>Вход</h1>
-    <div class="input-form">
-      <input type="text" placeholder="ФИО"  [(ngModel)]="Fio">
+    <h1>Регистрация</h1>
+    <div *ngIf="x==1">
+      <div class="input-form">
+        <input type="text" placeholder="Фамилия"  [(ngModel)]="lastName">
+      </div>
+      <div class="input-form">
+        <input type="text" placeholder="Имя"  [(ngModel)]="name">
+      </div>
+      <div class="input-form">
+        <input type="text" placeholder="Отчество"  [(ngModel)]="middleName">
+      </div>
+      <div class="input-form">
+        <input type="date" placeholder="Дата рождения"  [(ngModel)]="dateOfBith">
+      </div>
+      <div class="input-form">
+        <input value="" placeholder="(XXX) XXX XXXXX" prefix="+7" mask=" (XXX) XXX XX-XX" [(ngModel)]="phone">
+      </div>
+      <div class="input-form">
+        <button class="btn btn-primary"  (click)="Further()">Продолжить</button>
+      </div>
     </div>
-    <div class="input-form">
-      <input placeholder="Дата рождения" mask="XX.XX.XXXX" [(ngModel)]="dateOfBith">
-    </div>
-    <div class="input-form">
-      <input value="" placeholder="(XXX) XXX XXXXX" prefix="+" mask="X (XXX) XXX XX-XX" [(ngModel)]="phone">
-    </div>
-    <div class="input-form">
-      <input type="text" placeholder="Номер В/У" mask="XX XX XXXXXX" [(ngModel)]="driverNum">
-    </div>
-    <div class="input-form">
-      <input type="email" placeholder="Email" mask="" [(ngModel)]="email">
-    </div>
-    <div class="input-form">
-      <input type="password" placeholder="Придумайте пароль" class="passwordSingUp" [(ngModel)]="password">
-    </div>
-    <div class="input-form">
-      <input type="password" placeholder="Повторите пароль" class="passwordSingUprepit"[(ngModel)]="passwordRepeat">
-    </div>
-    <div class="input-form">
-        <button class="btn btn-primary" (click)="SignIn(Fio,dateOfBith,phone,driverNum,email,password,passwordRepeat)">Зарегистрироваться</button>
+    <div *ngIf="x==2">
+      <div class="input-form">
+        <input type="text" placeholder="Номер В/У" mask="XX XX XXXXXX" [(ngModel)]="driverNum">
+      </div>
+      <div class="input-form">
+        <input type="text" placeholder="Номер и серия паспорта" mask="XX XX XXXXXX" [(ngModel)]="passport">
+      </div>
+      <div class="input-form">
+        <input type="email" placeholder="Email" mask="" [(ngModel)]="email">
+      </div>
+      <div class="input-form">
+        <input type="password" placeholder="Придумайте пароль" class="passwordSingUp" [(ngModel)]="password">
+      </div>
+      <div class="input-form">
+        <input type="password" placeholder="Повторите пароль" class="passwordSingUprepit"[(ngModel)]="passwordRepeat">
+      </div>
+      <div class="input-form">
+        <button class="btn btn-primary"  (click)="SignIn(lastName,name,middleName,dateOfBith,phone,driverNum,email,passport,passwordRepeat)">Зарегистрироваться</button>
+      </div>
     </div>
     <a (click)="rout()" class="forget">Войти</a>
   </div>

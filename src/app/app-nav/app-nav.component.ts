@@ -7,10 +7,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./app-nav.component.css']
 })
 export class AppNavComponent implements OnInit {
-  balance ="Баланс:";
-  sum = "1200"+"руб";
-  clientName = "Никита";
-  clientLastName ="Коровинский";
 
   constructor(private router: Router) { }
 
@@ -43,5 +39,9 @@ export class AppNavComponent implements OnInit {
 
   SignIn() {
     this.router.navigate(['/SignIn'])
+  }
+
+  lk() {
+    this.router.navigate(['/lk'])
   }
 }

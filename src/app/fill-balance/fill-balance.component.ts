@@ -16,6 +16,7 @@ export class FillBalanceComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.balanceSum = this.dataService.getData();
   }
 
 }
