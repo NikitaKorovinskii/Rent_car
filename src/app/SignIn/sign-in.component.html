@@ -7,6 +7,9 @@
     <div class="input-form">
       <input type="password" placeholder="Пароль" class="passwordSingIn" [(ngModel)]="passwordUser">
     </div>
+    <div *ngIf="x==1" class="exception">
+      Неправильный логин или пароль
+    </div>
     <div class="input-form">
         <button class="btn btn-primary" (click)="rout(login,passwordUser)">Войти</button>
     </div>

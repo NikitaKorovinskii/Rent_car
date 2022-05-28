@@ -9,30 +9,31 @@ import axios from "axios";
 })
 export class SignInComponent implements OnInit {
   login = "";
-  passwordUser = ""
+  passwordUser = "";
+  x= 0;
 
   constructor(private route: Router) {
   }
 
   rout(login: string, passwordUser: string) {
-    login = this.login;
-    passwordUser = this.passwordUser;
-    //добавить запрос к серверу на проверку и добавление логина и пароля
 
-    this.route.navigate(['/cars'])
+      login= this.login,
+      passwordUser= this.passwordUser
 
-    axios.post("http://localhost:1234/humanity",
-      {
-        Login: login, Password: passwordUser
-      })
+    axios.post('http://localhost:1234/auth',  {
+      login:login,
+      password:passwordUser
+    }
+    )
       .then((response) => {
         if (response.status === 200) {
-          alert('Успешно!');
-          console.log (login.toString())
-        } else if (response.status === 404) {
-          alert('LALALA');
+          this.route.navigate(['/cars'])
+          this.x=0;
         }
       })
+      .catch((error) => {
+        this.x=1;
+      });
   }
 
   signUp() {

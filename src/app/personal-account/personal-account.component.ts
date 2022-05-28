@@ -18,15 +18,15 @@ export class PersonalAccountComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.clientFio = this.dataService.getFio()// поменять на запрос ниже
-    // axios.get("http://localhost:1234/")
-    //   .then((res)=>{
-    //     this.clientName=(res.data)
-    //   })
-    //   .catch ((err:any)=>
-    //   {
-    //     console.log(err)
-    //   });
+    // поменять на запрос ниже
+     axios.get("http://localhost:1234/")
+      .then((res)=>{
+        this.clientFio=(res.data)
+       })
+       .catch ((err:any)=>
+       {
+         console.log(err)
+      });
   }
 
 }

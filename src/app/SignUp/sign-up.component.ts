@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+
 import {DataService} from '../data.service';
 import {Router} from "@angular/router";
 import axios from "axios";
@@ -40,11 +41,15 @@ export class SignUpComponent implements OnInit {
     email = this.email;
     password = this.password;
     this.x = 1;
-    if (lastname != "" && name != "" && middleName != "" && phone != "" && driverNum != "" && passport != "" && email != "" && password != "" && password == this.passwordRepeat) {
+    if (driverNum != "" && passport != "" && email != "" && password != "" && password == this.passwordRepeat) {
       axios.post("http://localhost:1234/authorization", {
-        DateOfBirth: new Date(dateOfBith),
-        NumberPhone: phone,
-        DrieverNumber: parseInt(driverNum),
+        Name:name,
+        LastName: lastname,
+        MiddleName: middleName,
+        NumberDriver: parseInt(driverNum),
+        Number: phone,
+        Passport: passport,
+        DataOfBith: new Date(dateOfBith),
         Email: email,
         Password: password
       })
@@ -75,8 +80,13 @@ export class SignUpComponent implements OnInit {
     this.password = "";
     this.email = "";
   }
-
   Further() {
-    this.x = 2;
+    if(this.lastName != "" && this.name != "" && this.middleName != "" && this.phone != ""&&this.dateOfBith!=null){
+      this.x = 2;
+    }
+    else {
+      alert("Поля не все заполнены")
+    }
+
   }
 }
