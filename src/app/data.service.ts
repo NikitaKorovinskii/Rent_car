@@ -8,13 +8,29 @@ export class DataService{
     email="";
     password="";
     payCar=0;
+    idCar=0;
+    cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[
+    { IdCar:0,NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'' ,ImgCar:'',Horsepower:0,Engine:0}];
+
+    addCars(cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[
+      { IdCar:0,NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'' ,ImgCar:'',Horsepower:0,Engine:0}]){
+    this.cars = cars;
+    }
+    getCars(){
+      return this.cars;
+    }
 
     addPayCar(payofCar: number){
       this.payCar = payofCar;
       this.sum= this.sum - this.payCar;
       console.log(this.sum)
     }
-
+  getIdCar() {
+    return this.idCar;
+  }
+  addIdCar(idCar: number){
+    this.idCar =idCar;
+  }
   getData() {
     return this.sum;
   }

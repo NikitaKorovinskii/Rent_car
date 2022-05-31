@@ -15,14 +15,22 @@ export class ModalInfoComponent implements OnInit {
 
   g = getRandomInt(80);
   h = getRandomInt(100);
+  cars:[{
+
+    IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,
+    Transmission:'',ImgCar:'',Horsepower:0,Engine:0,}]=[
+    { IdCar:0,NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:
+        '' ,ImgCar:'',Horsepower:0,Engine:0}
+  ];
 
   constructor(private dataService: DataService) {
   }
-
   sum: number = 0;
 
-  ngOnInit() {
 
+
+  ngOnInit() {
+    this.cars = this.dataService.getCars()
   }
 
 

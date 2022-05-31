@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
       login= this.login,
       passwordUser= this.passwordUser
 
-    axios.post('http://localhost:1234/auth',  {
+    axios.post('http://localhost:1234/exect',  {
       login:login,
       password:passwordUser
     }

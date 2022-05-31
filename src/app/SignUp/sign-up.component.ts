@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-
 import {DataService} from '../data.service';
 import {Router} from "@angular/router";
 import axios from "axios";
@@ -23,6 +22,7 @@ export class SignUpComponent implements OnInit {
   email: any;
   password: any;
   passwordRepeat: any;
+  error=0;
 
 
   constructor(private dataService: DataService, private route: Router) {
@@ -41,30 +41,31 @@ export class SignUpComponent implements OnInit {
     email = this.email;
     password = this.password;
     this.x = 1;
+
+    console.log(this.dateOfBith)
     if (driverNum != "" && passport != "" && email != "" && password != "" && password == this.passwordRepeat) {
-      axios.post("http://localhost:1234/authorization", {
-        Name:name,
+      axios.post("http://localhost:1234/ClientAdd", {
+        Name: name,
         LastName: lastname,
         MiddleName: middleName,
-        NumberDriver: parseInt(driverNum),
-        Number: phone,
+        NumberDriver: driverNum,
         Passport: passport,
-        DataOfBith: new Date(dateOfBith),
+        Number: phone,
+        DataOfBith: dateOfBith,
         Email: email,
-        Password: password
+        Password : password
       })
         .then((response) => {
           if (response.status === 200) {
-            alert('Успешно!');
+            this.route.navigate(['/SignIn'])
           } else if (response.status === 404) {
-            alert('LALALA');
+            alert('Error');
           }
         })
-      this.route.navigate(['/SignIn'])
-    } else {
-      alert("Пароль не совпадает или не все поля заполнены");
     }
-
+    else {
+      this.error=1;
+    }
   }
 
   rout() {
@@ -83,9 +84,10 @@ export class SignUpComponent implements OnInit {
   Further() {
     if(this.lastName != "" && this.name != "" && this.middleName != "" && this.phone != ""&&this.dateOfBith!=null){
       this.x = 2;
+      this.error=0;
     }
     else {
-      alert("Поля не все заполнены")
+      this.error=1;
     }
 
   }

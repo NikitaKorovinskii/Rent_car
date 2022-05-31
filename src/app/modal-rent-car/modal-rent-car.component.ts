@@ -10,7 +10,7 @@ export class ModalRentCarComponent implements OnInit {
   startDate: any;
   endDate: any;
   @Output() closes = new EventEmitter<void>();
-  ResultCoast = "100 olegov";
+  ResultCoast = "";
   x = 1;
 
 
