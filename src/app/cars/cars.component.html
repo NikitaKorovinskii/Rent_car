@@ -27,7 +27,7 @@
             </div>
           </div>
           <button class="btn add" (click)="change(item.IdCar)">Подробнее</button>
-          <button class="btn" (click)="modals=true"> Арендовать </button>
+          <button class="btn" (click)="price(item.PriceCar,item.IdCar)"> Арендовать </button>
           <app-modal-info *ngIf="modal" (close)="modal = false"></app-modal-info>
           <app-modal-rent-car *ngIf="modals" (closes)="modals = false"></app-modal-rent-car>
         </div>

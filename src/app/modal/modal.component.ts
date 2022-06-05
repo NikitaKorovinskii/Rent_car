@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DataService} from '../data.service';
+import axios from "axios";
 
 @Component({
   selector: 'app-modal',
@@ -11,12 +12,24 @@ export class ModalComponent implements OnInit {
   constructor(private dataService: DataService){}
 
   sum: number = 0;
-  addItem(name: number){
-    this.dataService.addData(name);//заменить на запрос к серверу который поменяет данные в бд
-  }
+
   ngOnInit(){
 
   }
-
+  addItem(sum: number){
+    if (sum > 0 && sum!=null ){
+      axios.post('http://localhost:1234/addWallet',  {
+          Sum:sum,
+        }
+      )
+        .then((response) => {
+          if (response.status === 200) {
+            this.dataService.addNewSum(JSON.parse(response.headers["account"]))
+            console.log(this.dataService.getNewSum())
+          }})
+        .catch((error) => {
+        });
+    }
+    }
 
 }

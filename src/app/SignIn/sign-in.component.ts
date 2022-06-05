@@ -42,4 +42,11 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  hand(event: any, login: string, passwordUser: string) {
+    if(event.keyCode==13){
+      this.rout(login,passwordUser)
+    }
+
+  }
 }

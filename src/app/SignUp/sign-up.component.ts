@@ -40,10 +40,16 @@ export class SignUpComponent implements OnInit {
     passport = this.passport;
     email = this.email;
     password = this.password;
-    this.x = 1;
+
 
     console.log(this.dateOfBith)
-    if (driverNum != "" && passport != "" && email != "" && password != "" && password == this.passwordRepeat) {
+    if(password != this.passwordRepeat)
+    {
+      alert("Пароли не совпадают")
+    }
+    else
+    {
+    if (driverNum != "" && passport != "" && email != "" && password != "" ) {
       axios.post("http://localhost:1234/ClientAdd", {
         Name: name,
         LastName: lastname,
@@ -60,11 +66,13 @@ export class SignUpComponent implements OnInit {
             this.route.navigate(['/SignIn'])
           } else if (response.status === 404) {
             alert('Error');
+            this.x = 1;
           }
         })
     }
     else {
       this.error=1;
+    }
     }
   }
 

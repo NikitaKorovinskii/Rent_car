@@ -1,15 +1,15 @@
 <app-app-nav></app-app-nav>
 <ng-container>
   <div class="body">
-    <div class="infoClient">
+    <div class="infoClient" *ngFor="let item of Auth">
       <div>
-        ФИО: {{clientFio}}
+        ФИО: {{item.LastName}} {{item.Name}} {{item.MiddleName}}
       </div>
       <div>
-        Email: {{clientEmail}}
+        Email: {{item.Email}}
       </div>
       <div>
-        Номер прав: {{clientDriverNum}}
+        Номер прав: {{item.DriverNum}}
       </div>
     </div>
   </div>

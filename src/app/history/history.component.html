@@ -1,8 +1,25 @@
 <app-app-nav></app-app-nav>
 <div class="body">
   <div class="history">
-    История поездок <br>
-    Таблица через фор которая была в 5 лр.
+    <table>
+      <tr>
+        <th> Начало аренды  </th>
+        <th> Конец аренды  </th>
+        <th> Машина  </th>
+        <th> Номер машины  </th>
+      </tr>
+      <tr *ngFor="let item of tripInfo">
+        <td>  {{ item.StartDate }}  </td>
+        <td>  {{ item.EndDate }}  </td>
+        <td>  {{ item.NameCar }}  </td>
+        <td>  {{ item.NumberCar }}  </td>
+      </tr><!--ряд с ячейками заголовков-->
+    </table>
+    <div class="btn">
+      <button>Сформировать отчёт</button>
+    </div>
   </div>
+
+
 </div>
 <app-footer></app-footer>

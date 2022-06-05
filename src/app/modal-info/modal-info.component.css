@@ -1,57 +1,79 @@
-.backdrop{
+.backdrop {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgb(0,0,0,.3);
+  background: rgb(0, 0, 0, .3);
 }
-.modal{
+
+.modal {
   display: block;
   width: 900px;
-  height: 500px;
+  height: 84%;
   padding: 2rem;
   background: #fff;
-  margin-top: 6rem;
-  position: absolute;
+  margin-top: 3rem;
+  position: center;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
 }
-li  {text-align: left;
-padding-left: 20px}
-.title{
+
+li {
+  text-align: left;
+  padding-left: 20px
+}
+
+.title {
   margin: 0 auto;
 }
-.setting{
+
+.setting {
   margin: 0 auto;
   padding-top: 20px;
-  padding-left:30px ;
+  padding-left: 30px;
   font-size: 18px;
   font-family: "Lucida Sans Unicode";
 }
-.navbar{
+
+.navbar {
   font-size: 43px;
   font-family: "Lucida Sans Unicode";
+  padding-left: 6%;
+
 }
-.navbar img{
+
+.navbar img {
   margin: 0 50%;
   width: 40px;
   height: 40px;
 }
-.btn{
+
+.btn {
   text-align: center;
   background: linear-gradient(180deg, rgba(219, 0, 255, 0.5) -50.32%, rgba(36, 0, 255, 0.5) 100%);
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 20px;
 }
-.add{
+
+.add {
   margin: 0 auto;
-  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 33px;
 }
 
-input{
+.CloseModalWindow{
+  font-size: 30px;
+  cursor: pointer;
+  padding-left: 92%;
+  margin-top: -20px;
+  color: grey;
+}
+.CloseModalWindow:hover{
+  color: black;
+}
+input {
   margin-top: 20px;
   height: 100%;
   margin-left: 150px;
@@ -62,6 +84,13 @@ input{
   box-sizing: border-box;
   border-radius: 10px;
 }
-input:focus{
-  border-color:rgba(219, 0, 255, 0.5) ;
+
+input:focus {
+  border-color: rgba(219, 0, 255, 0.5);
+}
+.toInspect{
+  margin-left: 30px;
+  overflow: auto;
+  width:700px;
+  height:150px;
 }

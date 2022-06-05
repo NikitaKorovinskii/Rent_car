@@ -1,25 +1,37 @@
 <div class="backdrop"></div>
 <div class="modal">
+  <div class="CloseModalWindow">
+    <a (click)="close.emit();">x</a>
+  </div>
   <nav class="navbar">
-    <div class="title">
-      Информация о  автомобиле
-    </div>
-    <div class="setting" *ngFor="let item of cars">
-      <div style="display: flex">
-        <div> <b>Техническое состояние:</b>
-          <li>Уровень топлива: {{g}}л.</li>
-          <li>Уровень омывающей жидкости: {{h}} %</li></div>
-        <div> <b>Характеристики автомобиля:</b>
-          <li>Объем двигателя: {{item.Engine}}</li>
-          <li>Мощность двигателя: {{item.Horsepower}}</li>
-          <li>Тип коробки передач: {{item.Transmission}}</li><br></div>
+    <div *ngFor="let item of cass">
+      <div class="title">
+        Информация о  {{item.NameCar}}
       </div>
-
-      <div><b> Технический осмотр:</b>
-        <li>Последнее ТО было произведено 2019 году <br>(была замена масла)</li>
+      <div class="setting">
+        <div style="display: flex">
+          <div><b>Техническое состояние:</b>
+            <li>Уровень топлива: {{g}}л.</li>
+            <li>Уровень омывающей жидкости: {{h}} %</li>
+          </div>
+          <div><b>Характеристики автомобиля:</b>
+            <li>Объем двигателя: {{item.Engine}} Л.</li>
+            <li>Мощность двигателя: {{item.Horsepower}} Л.С.</li>
+            <li>Тип коробки передач: {{item.Transmission}}  </li>
+            <br></div>
         </div>
+      </div>
+    </div>
+    <div>
+        <b style="font-size: 20px"> Технический осмотр:</b>
+          <div class="toInspect">
+            <div *ngFor="let c of teche">
+              <li style="font-size: 20px">ТО было произведено {{c.DateOfPassage}}
+                <br>{{c.Description}}</li>
+            </div>
+
+          </div>
     </div>
   </nav>
-  <button class="btn add" (click)="close.emit()">Закрыть</button>
 </div>
 

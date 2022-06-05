@@ -11,6 +11,7 @@ export class CarsComponent implements OnInit {
   modal = false;
   modals =false;
   x=1;
+  bat=1;
   nameCar="Lada Granta";
   priceCar: number = 2000;
   cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[
@@ -21,19 +22,47 @@ export class CarsComponent implements OnInit {
 
   ngOnInit(): void { //Изменить запрос на получение массива данных
     axios.get("http://localhost:1234/cars")
-      .then((res)=>{
-        this.dataService.addCars( JSON.parse( res.headers["cars"]))
-        this.cars= this.dataService.getCars()
+      .then((res) => {
+        this.dataService.addCars(JSON.parse(res.headers["cars"]))
+        this.cars = this.dataService.getCars()
       })
-      .catch ((err:any)=>
-      {
+      .catch((err: any) => {
         console.log(err)
       });
+
+    axios.get("http://localhost:1234/TO")
+      .then((res) => {
+        this.dataService.addTech(JSON.parse(res.headers["tech"]))
+      })
+      .catch((err: any) => {
+        console.log(err)
+      });
+
+
   }
 
-  change(idCar: number){
+  change(IdCar: number) {
     this.modal=true
-    this.dataService.addIdCar(idCar)
+    this.dataService.addIdCar(IdCar)
+
+
   }
 
+  price(PriceCar: number, id:number) {
+    this.modals=true
+    this.dataService.addPriceCar(PriceCar);
+    axios.post('http://localhost:1234/Trip',  {
+      IdCar : id
+      }
+    )
+      .then((response) => {
+        if (response.status === 200) {
+          this.dataService.addTrip( JSON.parse(response.headers["trip"]))
+          console.log( this.dataService.getTrip())
+        }
+      })
+      .catch((error) => {
+
+      });
+  }
 }

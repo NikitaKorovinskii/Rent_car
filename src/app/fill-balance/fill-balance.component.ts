@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
+import axios from "axios";
 
 @Component({
   selector: 'app-fill-balance',
@@ -8,15 +9,34 @@ import {DataService} from '../data.service';
 
 })
 export class FillBalanceComponent implements OnInit {
-  modal = false
-  balanceSum = 0;
-  click(){
-    this.balanceSum = this.dataService.getData();//запрос к серверу на обновление и на отправку чека
-  }
+  modal = false;
+  balance:[{ Sum: 0}]=[
+    { Sum: 0,}
+  ];
   constructor(private dataService: DataService) { }
 
+
   ngOnInit(): void {
-    this.balanceSum = this.dataService.getData();
+    axios.get("http://localhost:1234/Balance")
+      .then((res) => {
+       this.balance = JSON.parse(res.headers["balance"])
+      })
+      .catch((err: any) => {
+        console.log(err)
+      });
+
+  }
+  change() {
+    this.modal=true;
   }
 
+  Change123($event: Event ) {
+    axios.get("http://localhost:1234/Balance")
+      .then((res) => {
+        this.balance = JSON.parse(res.headers["balance"])
+      })
+      .catch((err: any) => {
+        console.log(err)
+      });
+  }
 }

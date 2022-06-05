@@ -12,8 +12,8 @@ export class PersonalAccountComponent implements OnInit {
   clientEmail="";
   clientDriverNum = "";
   clientFio= "";
-  colors: { Email: string; IdClient: string; Id: string; Login: string; Password: string }[] = [
-    { "Id": "", "Login": "","Email": "","Password": "","IdClient": "" }
+  Auth: { LastName: "", Name: "", MiddleName: "", DriverNum: "", Email: "" }[] = [
+    { LastName: "", Name: "", MiddleName: "", DriverNum: "", Email: "" }
   ];
 
   constructor(private dataService: DataService) { }
@@ -23,10 +23,7 @@ export class PersonalAccountComponent implements OnInit {
     axios.get("http://localhost:1234/client")
       .then((res) => {
         console.log(res.headers)
-        for (let i = 0; i < res.headers["Auth"].length; i++) {
-          this.colors.push(JSON.parse(res.headers["Auth"][i]))
-          console.log(this.colors[i].Email)
-        }
+          this.Auth=JSON.parse(res.headers["client"])
       })
       .catch((err: any) => {
         console.log(err)

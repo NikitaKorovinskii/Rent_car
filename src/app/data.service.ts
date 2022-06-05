@@ -1,24 +1,37 @@
 export class DataService{
 
     sum = 0;
-    Fio="";
-    dateOfBith="";
-    phone="7";
-    driverNum="";
-    email="";
-    password="";
     payCar=0;
     idCar=0;
-    cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[
-    { IdCar:0,NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'' ,ImgCar:'',Horsepower:0,Engine:0}];
+    newSum=0;
+    Tech: [{ IdInspection: 0, DateOfPassage: '', Description: '', IdCar: 0 }] = [{IdInspection: 0, DateOfPassage: '', Description: '', IdCar: 0}];
+    cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[{ IdCar:0,NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'' ,ImgCar:'',Horsepower:0,Engine:0}];
+    PriceCar=0;
 
-    addCars(cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[
+  tripsDate:[{ StartDate: '', EndDate: ''}]=[{StartDate: '', EndDate: '' }];
+
+  addCars(cars:[{IdCar:0, NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'',ImgCar:'',Horsepower:0,Engine:0}]=[
       { IdCar:0,NameCar: '', PriceCar: 0, BodyType: '',CountSeats:0,Transmission:'' ,ImgCar:'',Horsepower:0,Engine:0}]){
     this.cars = cars;
     }
+  addTech(tech:[{IdInspection: 0, DateOfPassage: '', Description: '', IdCar: 0}]=[
+    { IdInspection: 0, DateOfPassage: '', Description: '', IdCar: 0}]){
+    this.Tech =tech ;
+  }
+  getTech(){
+    return this.Tech;
+  }
     getCars(){
       return this.cars;
     }
+
+  addTrip(cars:[{StartDate: '', EndDate: ''}]=[
+    { StartDate: '', EndDate: ''}]){
+    this.tripsDate = cars;
+  }
+  getTrip(){
+    return this.tripsDate;
+  }
 
     addPayCar(payofCar: number){
       this.payCar = payofCar;
@@ -34,46 +47,17 @@ export class DataService{
   getData() {
     return this.sum;
   }
-  addData(name: number){
-    this.sum+=name;
-    console.log(this.sum)
+  getPriceCar() {
+    return this.PriceCar;
   }
-  addFio(Fio: string,){
-    this.Fio=Fio;
-    console.log(Fio)
+  addPriceCar(PriceCar: number){
+    this.PriceCar =PriceCar;
   }
-  addDateOfBith(dateOfBith:string,){
-    this.dateOfBith+=dateOfBith;
+
+  addNewSum(parse: number) {
+    this.newSum=parse;
   }
-  addDriverNum(driverNum: string){
-    this.driverNum+=driverNum;
-  }
-  addPhone(phone:string){
-    this.phone=phone;
-  }
-  addEmail(email:string){
-    this.email=email;
-  }
-  addPassword(password:string){
-    this.password=password;
-  }
-  getPhone(){
-    return this.phone;
-  }
-  getFio(){
-    return this.Fio;
-    console.log(this.Fio)
-  }
-  getDateOfBith(){
-    return this.dateOfBith;
-  }
-  getDriverNum(){
-    return this.driverNum;
-  }
-  getEmail(){
-    return this.email;
-  }
-  getPassword(){
-    return this.password;
+  getNewSum(){
+    return this.newSum;
   }
 }
