@@ -58,7 +58,7 @@ nav ul::after{
   line-height: 28px;
   /* identical to box height */
   text-transform: uppercase;
-  color: #000000;
+  color: white;
 
 }
 a{
@@ -116,9 +116,11 @@ nav ul li:hover ul{
 
 }
 .menuItem{
-  margin-top: 25px;
+  margin-top:  25px;
+  display: flex;
 }
 .menuItem a{
+  color: white;
   text-align: center;
   margin-left: 40px;
   text-decoration: none;
@@ -130,7 +132,6 @@ nav ul li:hover ul{
   line-height: 28px;
   /* identical to box height */
   text-transform: uppercase;
-  color: #000000;
 }
 .menuItem a:hover{
    color: red;

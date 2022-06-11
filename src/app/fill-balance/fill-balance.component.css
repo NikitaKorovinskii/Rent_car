@@ -22,6 +22,7 @@ i{
   margin-bottom: 80px;
   font-family: 'Lucida Sans Unicode';
   font-style: normal;
+  color: white;
   font-weight: 400;
   font-size: 44px;
 
@@ -29,5 +30,6 @@ i{
   background: linear-gradient(180deg, rgba(219, 0, 255, 0.5) -50.32%, rgba(36, 0, 255, 0.5) 100%);
   border: 1px solid #000000;
   box-sizing: border-box;
+  color: white;
   border-radius: 20px;
 }

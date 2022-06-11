@@ -49,8 +49,7 @@ export class CarsComponent implements OnInit {
   }
 
   price(PriceCar: number, id:number) {
-    this.modals=true
-    this.dataService.addPriceCar(PriceCar);
+
     axios.post('http://localhost:1234/Trip',  {
       IdCar : id
       }
@@ -58,7 +57,9 @@ export class CarsComponent implements OnInit {
       .then((response) => {
         if (response.status === 200) {
           this.dataService.addTrip( JSON.parse(response.headers["trip"]))
-          console.log( this.dataService.getTrip())
+          this.modals=true
+          this.dataService.addPriceCar(PriceCar)
+          this.dataService.addIdCar(id)
         }
       })
       .catch((error) => {

@@ -13,6 +13,7 @@
           <div><b>Техническое состояние:</b>
             <li>Уровень топлива: {{g}}л.</li>
             <li>Уровень омывающей жидкости: {{h}} %</li>
+            <li>Средний расход на 100 км: {{c}} л.</li>
           </div>
           <div><b>Характеристики автомобиля:</b>
             <li>Объем двигателя: {{item.Engine}} Л.</li>
@@ -26,7 +27,7 @@
         <b style="font-size: 20px"> Технический осмотр:</b>
           <div class="toInspect">
             <div *ngFor="let c of teche">
-              <li style="font-size: 20px">ТО было произведено {{c.DateOfPassage}}
+              <li style="font-size: 20px">ТО было произведено {{c.DateOfPassage}}:
                 <br>{{c.Description}}</li>
             </div>
 

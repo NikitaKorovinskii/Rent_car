@@ -16,6 +16,7 @@ export class ModalInfoComponent implements OnInit {
 
   g = getRandomInt(80);
   h = getRandomInt(100);
+  c = getRandomInt(19)
   cars: [{
     IdCar: 0, NameCar: '', PriceCar: 0, BodyType: '', CountSeats: 0,
     Transmission: '', ImgCar: '', Horsepower: 0, Engine: 0,

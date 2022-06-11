@@ -1,7 +1,7 @@
 <app-app-nav></app-app-nav>
 <div class="body">
-  <div class="history">
-    <table>
+  <div class="history"  >
+    <table id="htmlData">
       <tr>
         <th> Начало аренды  </th>
         <th> Конец аренды  </th>
@@ -16,7 +16,7 @@
       </tr><!--ряд с ячейками заголовков-->
     </table>
     <div class="btn">
-      <button>Сформировать отчёт</button>
+      <button (click)="openPDF()">Сформировать отчёт</button>
     </div>
   </div>
 

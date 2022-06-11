@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {Routes, RouterModule} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {NgbPaginationModule, NgbAlertModule, NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
     ModalInfoComponent,
     ModalRentCarComponent,
 
+
   ],
   imports: [
     NgbPaginationModule,
@@ -61,7 +64,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     NgxMaskModule.forRoot(),
-    NgbDatepickerModule
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

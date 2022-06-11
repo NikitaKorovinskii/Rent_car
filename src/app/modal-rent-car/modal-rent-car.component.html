@@ -4,36 +4,41 @@
     <div class="CloseModalWindow">
       <a (click)="closes.emit();">x</a>
     </div>
-
+  <div class="calend">
     <div class="startDate">
       <div class="endSt">
         Дата начало аренды:
       </div>
       <div class="tripStartDate">
-        <input class="dateSt" type="date" (input)="onSearch($event,startDate,endDate)" [(ngModel)]="startDate"/>
+      <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"
+                      (click)="sendDate($event)"
+                      [markDisabled]="isDisabled"></ngb-datepicker>
       </div>
-
     </div>
     <div class="endDate">
       <div class="endSt">
         Дата завершения аренды:
       </div>
       <div class="tripStartDate">
-        <input class="dateSt" type="date" (input)="onSearch($event,startDate,endDate)" [(ngModel)]="endDate"/>
+        <ngb-datepicker #dp [(ngModel)]="models" (navigate)="date = $event.next"
+                        (click)="sendAddDate($event)"
+                        [markDisabled]="isDisabled"></ngb-datepicker>
       </div>
     </div>
-    <div *ngIf="startDate>endDate" class="exception">
+  </div>
+    <div *ngIf="x==2" class="exception">
       Даты введены не правильно
     </div>
-    <div *ngIf="startDate<=endDate" >
+    <div *ngIf="x==1">
       <div>
         {{ResultCoast}}
       </div>
+      <div>
+        <button class="btn" (click)="CoastTrip();closes.emit();">Арендовать</button>
+      </div>
     </div>
+    <app-modal *ngIf="modal" (close)="modal=false"></app-modal>
 
-    <div>
-      <button class="btn">Арендовать</button>
-    </div>
   </div>
 </div>
 
