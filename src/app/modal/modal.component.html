@@ -16,5 +16,5 @@
   <div class="numberCard">
       <input  class="sum" placeholder="Сумма" [(ngModel)]="sum" mask="XXXXXX">
   </div>
-  <a href="http://localhost:4200/fill-balance"><button class="btn add" (click)="addItem(sum);close.emit()">Пополнить</button></a>
+ <button class="btn add" (click)="addItem(sum);close.emit()">Пополнить</button>
 </div>

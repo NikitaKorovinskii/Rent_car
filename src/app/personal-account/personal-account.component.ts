@@ -20,9 +20,14 @@ export class PersonalAccountComponent implements OnInit {
 
   ngOnInit(): void {
     // поменять на запрос ниже
-    axios.get("http://localhost:1234/client")
+    axios.get("http://localhost:1234/client",
+      {
+        headers:{
+          "Token":this.dataService.getToken().split('.')[1],
+          "IdClient":this.dataService.getToken().split('.')[0]
+        }
+      })
       .then((res) => {
-        console.log(res.headers)
           this.Auth=JSON.parse(res.headers["client"])
       })
       .catch((err: any) => {

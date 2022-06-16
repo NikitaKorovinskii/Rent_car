@@ -23,6 +23,7 @@ import {NgxMaskModule} from "ngx-mask";
 import { ModalInfoComponent } from './modal-info/modal-info.component';
 import { ModalRentCarComponent } from './modal-rent-car/modal-rent-car.component';
 
+
 const appRoutes: Routes = [
   {path: '', component: SignInComponent},
   {path: 'SignIn', component: SignInComponent},
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     ModalComponent,
     ModalInfoComponent,
     ModalRentCarComponent,
+
 
 
   ],

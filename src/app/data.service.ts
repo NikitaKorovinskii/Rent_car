@@ -1,5 +1,7 @@
 export class DataService{
 
+    token = "";
+    walletSum =0;
     sum = 0;
     payCar=0;
     idCar=0;
@@ -47,6 +49,12 @@ export class DataService{
   getData() {
     return this.sum;
   }
+  addWalletSum(WalletSum: number){
+    this.walletSum =WalletSum;
+  }
+  getWalletSum() {
+    return this.walletSum;
+  }
   getPriceCar() {
     return this.PriceCar;
   }
@@ -59,5 +67,11 @@ export class DataService{
   }
   getNewSum(){
     return this.newSum;
+  }
+  addToken(token: string){
+    this.token =token;
+  }
+  getToken() {
+    return this.token;
   }
 }

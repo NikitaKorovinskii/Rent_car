@@ -1,9 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DataService} from "../data.service";
-import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {ModalDismissReasons, NgbCalendar, NgbDate, NgbDateStruct, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import axios from "axios";
-import {NgbDatepickerNavigateEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker";
-import {concatWith} from "rxjs";
+
 
 //import {modelGroupProvider} from "@angular/forms";
 
@@ -15,8 +14,8 @@ import {concatWith} from "rxjs";
 })
 
 export class ModalRentCarComponent implements OnInit {
-  modal: any;
   @Output() closes = new EventEmitter<void>();
+  modals = false;
   ResultCoast = "";
   x = 0;
   currentDate: any = new Date()
@@ -33,6 +32,7 @@ export class ModalRentCarComponent implements OnInit {
     this.date = {year: 0, month: 0}
     this.models = {year: 0, month: 0, day: 0}
   }
+
   isDisabled = (date: NgbDate) => {
 
     // Функция преобразования вашего формата даты в NgbDate
@@ -89,18 +89,18 @@ export class ModalRentCarComponent implements OnInit {
       let sum = 0;
 
       let years = (this.eDate.getFullYear() - this.sDate.getFullYear()) * 365;
-      let mounth = (this.eDate.getMonth() - this.sDate.getMonth()) * 30;
+      let month = (this.eDate.getMonth() - this.sDate.getMonth()) * 30;
       let day = this.eDate.getDate() - this.sDate.getDate();
       if (day == 0) {
         day = 1
       }
 
 
-      if (mounth == 0 && day == 1) {
-        sum = ((day + mounth + years) * this.dataService.getPriceCar());
+      if (month == 0 && day == 1) {
+        sum = ((day + month + years) * this.dataService.getPriceCar());
         this.ResultCoast = "С вас: " + sum.toString() + " рублей";
       } else {
-        sum = ((day + mounth + years) * this.dataService.getPriceCar()) * 0.8;
+        sum = ((day + month + years) * this.dataService.getPriceCar()) * 0.8;
         this.ResultCoast = "С вас: " + sum.toString() + " рублей";
       }
       this.x = 1
@@ -116,18 +116,18 @@ export class ModalRentCarComponent implements OnInit {
 
 
       let years = (this.eDate.getFullYear() - this.sDate.getFullYear()) * 365;
-      let mounth = (this.eDate.getMonth() - this.sDate.getMonth()) * 30;
+      let month = (this.eDate.getMonth() - this.sDate.getMonth()) * 30;
       let day = this.eDate.getDate() - this.sDate.getDate();
       if (day == 0) {
         day = 1
       }
 
 
-      if (mounth == 0 && day == 1) {
-        this.sum = ((day + mounth + years) * this.dataService.getPriceCar());
+      if (month == 0 && day == 1) {
+        this.sum = ((day + month + years) * this.dataService.getPriceCar());
         this.ResultCoast = "С вас: " + this.sum .toString() + " рублей";
       } else {
-        this.sum  = ((day + mounth + years) * this.dataService.getPriceCar()) * 0.8;
+        this.sum  = ((day + month + years) * this.dataService.getPriceCar()) * 0.8;
         this.ResultCoast = "С вас: " + this.sum .toString() + " рублей";
       }
       this.x = 1
@@ -136,10 +136,17 @@ export class ModalRentCarComponent implements OnInit {
   }
 
   CoastTrip() {
+    if (this.dataService.getWalletSum()>this.sum){
     let sDate = (this.sDate.getDate().toString() + "." + this.sDate.getMonth().toString() + "." + this.sDate.getFullYear().toString())
     let eDate = (this.eDate.getDate().toString() + "." + this.eDate.getMonth().toString() + "." + this.eDate.getFullYear().toString())
     axios.post('http://localhost:1234/addWallet', {
         Sum: this.sum * (-1)
+      },
+      {
+        headers:{
+          "Token":this.dataService.getToken().split('.')[1],
+          "IdClient":this.dataService.getToken().split('.')[0]
+        }
       }
     )
       .then((response) => {
@@ -155,6 +162,12 @@ export class ModalRentCarComponent implements OnInit {
         EndDate: eDate.toString(),
         IdCar: this.dataService.getIdCar(),
 
+      },
+      {
+        headers: {
+          "Token": this.dataService.getToken().split('.')[1],
+          "IdClient": this.dataService.getToken().split('.')[0]
+        }
       }
     )
       .then((response) => {
@@ -166,5 +179,11 @@ export class ModalRentCarComponent implements OnInit {
       .catch((error) => {
       });
   }
+    else {
+      alert("Необходимо пополнить баланс на сумму: "+ (this.sum-this.dataService.getWalletSum())+" ₽")
+
+    }
+  }
 
 }
+

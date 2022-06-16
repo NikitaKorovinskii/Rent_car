@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 import axios from "axios";
+import {WalletService} from "../Wallet.service";
+import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-fill-balance',
@@ -10,16 +12,20 @@ import axios from "axios";
 })
 export class FillBalanceComponent implements OnInit {
   modal = false;
-  balance:[{ Sum: 0}]=[
-    { Sum: 0,}
-  ];
-  constructor(private dataService: DataService) { }
+  balance = this.WalletService.getSum()
+  constructor(private dataService: DataService,private modalService: NgbModal,private WalletService: WalletService) { }
 
 
   ngOnInit(): void {
-    axios.get("http://localhost:1234/Balance")
+    axios.get("http://localhost:1234/Balance",
+      {
+        headers:{
+          "Token":this.dataService.getToken().split('.')[1],
+          "IdClient":this.dataService.getToken().split('.')[0]
+        }})
       .then((res) => {
-       this.balance = JSON.parse(res.headers["balance"])
+       this.WalletService.addSum(  JSON.parse(res.headers["balance"]))
+        this.balance = this.WalletService.getSum()
       })
       .catch((err: any) => {
         console.log(err)
@@ -31,7 +37,12 @@ export class FillBalanceComponent implements OnInit {
   }
 
   Change123($event: Event ) {
-    axios.get("http://localhost:1234/Balance")
+    axios.get("http://localhost:1234/Balance",
+      {
+        headers:{
+          "Token":this.dataService.getToken().split('.')[1],
+          "IdClient":this.dataService.getToken().split('.')[0]
+        }})
       .then((res) => {
         this.balance = JSON.parse(res.headers["balance"])
       })
@@ -39,4 +50,5 @@ export class FillBalanceComponent implements OnInit {
         console.log(err)
       });
   }
+
 }

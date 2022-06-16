@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import axios from "axios";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-SignIn',
@@ -12,7 +13,7 @@ export class SignInComponent implements OnInit {
   passwordUser = "";
   x= 0;
 
-  constructor(private route: Router) {
+  constructor(private route: Router,private dataService: DataService) {
   }
 
   rout(login: string, passwordUser: string) {
@@ -29,6 +30,7 @@ export class SignInComponent implements OnInit {
         if (response.status === 200) {
           this.route.navigate(['/cars'])
           this.x=0;
+          this.dataService.addToken(response.headers["token"])
         }
       })
       .catch((error) => {

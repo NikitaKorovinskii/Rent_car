@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import axios from "axios";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-history',
@@ -28,12 +29,16 @@ export class HistoryComponent implements OnInit {
     });
   }
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    axios.get("http://localhost:1234/TripInfoClient")
+    axios.get("http://localhost:1234/TripInfoClient",
+      {
+        headers:{
+          "Token":this.dataService.getToken().split('.')[1],
+          "IdClient":this.dataService.getToken().split('.')[0]
+        }})
       .then((res) => {
-
        this.tripInfo =JSON.parse(res.headers["info"])
       })
       .catch((err: any) => {

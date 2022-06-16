@@ -1,4 +1,4 @@
-.backdrop {
+.backdropp {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -15,10 +15,10 @@
 .modal {
   display: block;
   width: 980px;
-  height: 600px;
+  height: 580px;
   padding: 2rem;
   background: #fff;
-  margin-top: 9rem;
+  margin-top: 2rem;
   position: center;
   left: 50%;
   transform: translate(-50%, 0);
@@ -54,6 +54,7 @@
   border-radius: 20px;
   color: white;
   font-size: 33px;
+  margin-bottom: 200px;
 }
 
 .error {

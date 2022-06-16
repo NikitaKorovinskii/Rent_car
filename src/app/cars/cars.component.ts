@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
 import {DataService} from '../data.service';
+import {concatWith} from "rxjs";
 
 @Component({
   selector: 'app-cars',
@@ -10,6 +11,7 @@ import {DataService} from '../data.service';
 export class CarsComponent implements OnInit {
   modal = false;
   modals =false;
+  balance:[{Sum:0}] =[{Sum:0}];
   x=1;
   bat=1;
   nameCar="Lada Granta";
@@ -21,7 +23,13 @@ export class CarsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void { //Изменить запрос на получение массива данных
-    axios.get("http://localhost:1234/cars")
+    axios.get("http://localhost:1234/cars",
+      {
+        headers: {
+          "Token": this.dataService.getToken().split('.')[1],
+          "IdClient": this.dataService.getToken().split('.')[0]
+        }
+      })
       .then((res) => {
         this.dataService.addCars(JSON.parse(res.headers["cars"]))
         this.cars = this.dataService.getCars()
@@ -30,15 +38,33 @@ export class CarsComponent implements OnInit {
         console.log(err)
       });
 
-    axios.get("http://localhost:1234/TO")
+    axios.get("http://localhost:1234/TO",
+      {
+        headers: {
+          "Token": this.dataService.getToken().split('.')[1],
+          "IdClient": this.dataService.getToken().split('.')[0]
+        }
+      })
       .then((res) => {
         this.dataService.addTech(JSON.parse(res.headers["tech"]))
       })
       .catch((err: any) => {
         console.log(err)
       });
-
-
+    axios.get("http://localhost:1234/Balance",
+      {
+        headers: {
+          "Token": this.dataService.getToken().split('.')[1],
+          "IdClient": this.dataService.getToken().split('.')[0]
+        }
+      })
+      .then((res) => {
+        this.balance = JSON.parse(res.headers["balance"])
+        this.dataService.addWalletSum(this.balance[0].Sum);
+      })
+      .catch((err: any) => {
+        console.log(err)
+      });
   }
 
   change(IdCar: number) {
@@ -52,6 +78,12 @@ export class CarsComponent implements OnInit {
 
     axios.post('http://localhost:1234/Trip',  {
       IdCar : id
+      },
+      {
+        headers: {
+          "Token": this.dataService.getToken().split('.')[1],
+          "IdClient": this.dataService.getToken().split('.')[0]
+        }
       }
     )
       .then((response) => {
