@@ -1,8 +1,9 @@
 <app-app-nav></app-app-nav>
 <div class="body">
   <div class="titleBalance">
-    <div class="balance" >
+    <div class="balance">
       Ваш баланс: {{balance}} рублей
+      <i class="fa-solid fa-arrow-rotate-right" (click)="balanceNew()"></i>
     </div>
   </div>
   <button class="btn" (click)="change()">Пополнить</button>

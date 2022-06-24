@@ -51,4 +51,7 @@ export class FillBalanceComponent implements OnInit {
       });
   }
 
+  balanceNew() {
+    this.balance = this.WalletService.getSum()
+  }
 }

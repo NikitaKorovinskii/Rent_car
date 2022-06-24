@@ -12,6 +12,9 @@
   justify-content: space-between;
   margin: 50px 100px 30px;
 }
+.sumAccept{
+  font-size: 20px;
+}
 .modal {
   display: block;
   width: 980px;
